@@ -24,16 +24,10 @@
 
 
     <!--Stylesheets-->
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/design.css"> <!-- Resource style -->
-	<link rel="stylesheet" type="text/css" href="demo.css">
+	<link rel="stylesheet" href="./static/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="./static/css/design.css"> <!-- Resource style -->
+	<link rel="stylesheet" type="text/css" href="./static/demo.css">
 <!-- 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-
-    <!--Script-->
-	<script src="js/modernizr.js"></script>
-	<script type="text/javascript" src="static/js/jquery.js" ></script>
-  <script src="static/tester.js"></script> <!-- Modernizr -->
-
 
 	<title>Plan-It</title>
 
@@ -46,23 +40,14 @@
 	<main class="main-content" >
 
 		<form id="msform" style = "width: 100%">
-			<!-- progressbar -->
-			<ul id="progressbar"  >
-				<li class="active">Step 1</li>
-				<li>Step 2</li>
-				<li>Step 3</li>
-				<li>Step 4</li>
-			</ul>
 
 			<!-- fieldsets -->
 			<fieldset>
 				<h2 class="fs-title">Personal Information</h2>
 				<h3 class="fs-subtitle"></h3>
 				<div id="wynmistakes" class="errormessages"></div>
-				<input type="text" name="firstname" placeholder="First Name" id="fname"/>
-				<input type="text" name="lastname" placeholder="Last Name" id="lname"/>
-				<input type="text" name="zipcode" placeholder = "Zipcode" id="zipcode"/>
-				<input style = "color: #3333cc; background-color: white"type="button" name="next"class="next1 action-button" value="Next" />
+				<input type="text" name="zipcode" placeholder="Enter Zip Code!" id="zc"/>
+				<input style = "color: #3333cc; background-color: white"type="button" name="next" onclick="getZip()" class="next1 action-button" value="Next" />
 			</fieldset>
 			<fieldset>
 				<h2 class="fs-title">What kinds of things do you like to do?</h2>
@@ -354,6 +339,11 @@
 
 </body>
 <footer>
-<script type="text/javascript" src="static/js/jquery.js" ></script>
+<script type="text/javascript" src="./static/js/jquery.js" ></script>
+
+    <!--Script-->
+	<script type="text/javascript" src="./static/js/modernizr.js"></script>
+  	<script type="text/javascript" src="./static/tester.js"></script> <!-- Modernizr -->
+
 </footer>
 </html>

@@ -8,7 +8,7 @@ def hello():
     return render_template('signup.html')
 
 @app.route("/JSON")
-def test(latitude = 0, longitude = 0):
+def test(zipcode = 95129):
     return getRestaurants(latitude, longitude)
 
 if __name__ == "__main__":
@@ -26,7 +26,7 @@ auth = Oauth1Authenticator(
     token_secret = "EH3SLPVzI4qKGxPOtlYRyPgcpkI"
 )
 
-def getRestaurants(latitude, longitude):
+def getRestaurants(zipcode):
     client = Client(auth)
 
     params = {
@@ -35,5 +35,5 @@ def getRestaurants(latitude, longitude):
         'radius_filter': 10000
     }
 
-    response = client.search_by_coordinates(latitude, longitude, **params)
+    response = client.search(zipcode, **params)
     return response.businesses
