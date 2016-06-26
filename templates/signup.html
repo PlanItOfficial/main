@@ -7,7 +7,7 @@
 
 	<script src="https://www.parsecdn.com/js/parse-1.6.14.min.js"></script>
 	</script>
-    <script async defer
+    <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtapG46SfKsgGbZ-ChRlMFCxI6vgwcJRM">
     </script>
 
@@ -16,7 +16,7 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
 
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -30,8 +30,9 @@
 <!-- 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 
     <!--Script-->
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" ></script>
+	<script src="js/modernizr.js"></script>
+	<script type="text/javascript" src="static/js/jquery.js" ></script>
+  <script src="static/tester.js"></script> <!-- Modernizr -->
 
 
 	<title>Plan-It</title>
@@ -121,13 +122,13 @@
 			var error2="";
 			var error3="";
 			var error4="";
-			var fname = $('#fname').val();
-			var lname = $('#lname').val();
-			var zipcode = $('#zipcode').val();
-			var zipcode = $('#age').val();
-			var activities = $('#activities').val();
-			var budget = $('#budget').val();
-			var hours = $('#hours').val();
+			// var fname = $('#fname').val();
+			// var lname = $('#lname').val();
+			// var zipcode = $('#zipcode').val();
+			// var zipcode = $('#age').val();
+			// var activities = $('#activities').val();
+			// var budget = $('#budget').val();
+			// var hours = $('#hours').val();
 			$(".next1").click(function(event){
 				var error1="";
 				fnameok=true;
@@ -150,12 +151,12 @@
 					animating = true;
 					current_fs = $(this).parent();
 					next_fs = $(this).parent().next();
-					
+
 					//activate next step on progressbar using the index of next_fs
 					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-					
+
 					//show the next fieldset
-					next_fs.show(); 
+					next_fs.show();
 					//hide the current fieldset with style
 					current_fs.animate({opacity: 0}, {
 						step: function(now, mx) {
@@ -168,12 +169,12 @@
 							opacity = 1 - now;
 							current_fs.css({'transform': 'scale('+scale+')'});
 							next_fs.css({'left': left, 'opacity': opacity});
-						}, 
-						duration: 800, 
+						},
+						duration: 800,
 						complete: function(){
 							current_fs.hide();
 							animating = false;
-						}, 
+						},
 						//this comes from the custom easing plugin
 						easing: 'easeInOutBack'
 					});
@@ -184,10 +185,10 @@
 			});
 			$(".next2").click(function(){
 				error2="";
-				
-				
-				
-			
+
+
+
+
 				cellok = true;
 				gradeok = true;
 				yearindecaok = true;
@@ -197,12 +198,12 @@
 					animating = true;
 					current_fs = $(this).parent();
 					next_fs = $(this).parent().next();
-					
+
 					//activate next step on progressbar using the index of next_fs
 					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-					
+
 					//show the next fieldset
-					next_fs.show(); 
+					next_fs.show();
 					//hide the current fieldset with style
 					current_fs.animate({opacity: 0}, {
 						step: function(now, mx) {
@@ -215,12 +216,12 @@
 							opacity = 1 - now;
 							current_fs.css({'transform': 'scale('+scale+')'});
 							next_fs.css({'left': left, 'opacity': opacity});
-						}, 
-						duration: 800, 
+						},
+						duration: 800,
 						complete: function(){
 							current_fs.hide();
 							animating = false;
-						}, 
+						},
 						//this comes from the custom easing plugin
 						easing: 'easeInOutBack'
 					});
@@ -233,15 +234,15 @@
 			$(".previous").click(function(){
 				if(animating) return false;
 				animating = true;
-				
+
 				current_fs = $(this).parent();
 				previous_fs = $(this).parent().prev();
-				
+
 				//de-activate current step on progressbar
 				$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-				
+
 				//show the previous fieldset
-				previous_fs.show(); 
+				previous_fs.show();
 				//hide the current fieldset with style
 				current_fs.animate({opacity: 0}, {
 					step: function(now, mx) {
@@ -254,12 +255,12 @@
 						opacity = 1 - now;
 						current_fs.css({'left': left});
 						previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-					}, 
-					duration: 800, 
+					},
+					duration: 800,
 					complete: function(){
 						current_fs.hide();
 						animating = false;
-					}, 
+					},
 					//this comes from the custom easing plugin
 					easing: 'easeInOutBack'
 				});
@@ -281,20 +282,20 @@
 				} else {
 					error3+="Please enter a valid email address.<br>";
 				}
-				
+
 					passwordsmatch=true;
-				
+
 				if (emailok && passwordsmatch) {
 					if(animating) return false;
 					animating = true;
 					current_fs = $(this).parent();
 					next_fs = $(this).parent().next();
-					
+
 					//activate next step on progressbar using the index of next_fs
 					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-					
+
 					//show the next fieldset
-					next_fs.show(); 
+					next_fs.show();
 					//hide the current fieldset with style
 					current_fs.animate({opacity: 0}, {
 						step: function(now, mx) {
@@ -307,12 +308,12 @@
 							opacity = 1 - now;
 							current_fs.css({'transform': 'scale('+scale+')'});
 							next_fs.css({'left': left, 'opacity': opacity});
-						}, 
-						duration: 800, 
+						},
+						duration: 800,
 						complete: function(){
 							current_fs.hide();
 							animating = false;
-						}, 
+						},
 						//this comes from the custom easing plugin
 						easing: 'easeInOutBack'
 					});
@@ -326,11 +327,9 @@
 
 		</script>
 
-		<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-		<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
 
-	   
-		
+
+
 	</main>
 	<script>
 
@@ -346,15 +345,15 @@
 	// });
 
 
-	
-	
+
+
 
 
 	</script>
 
 
 </body>
-
-
-
+<footer>
+<script type="text/javascript" src="static/js/jquery.js" ></script>
+</footer>
 </html>
