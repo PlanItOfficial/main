@@ -10,15 +10,14 @@ auth = Oauth1Authenticator(
     token_secret = "EH3SLPVzI4qKGxPOtlYRyPgcpkI"
 )
 
-client = Client(auth)
+def getRestaurants(latitude, longitude):
+    client = Client(auth)
 
-params = {
-    'term': 'food',
-    'lang': 'en',
-    'radius_filter': 10000
-}
+    params = {
+        'term': 'food',
+        'lang': 'en',
+        'radius_filter': 10000
+    }
 
-response = client.search_by_coordinates(37.410095, -122.036015, **params)
-print (response.businesses[0].name)
-print (response.businesses[1].name)
-print (response.businesses[2].name)
+    response = client.search_by_coordinates(latitude, longitude, **params)
+    return response.businesses
