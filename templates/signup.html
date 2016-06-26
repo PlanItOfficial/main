@@ -34,13 +34,13 @@
     <link rel="icon" href="img/favico.png"></link>
 </head>
 
-<body background="C:\Users\Rohit\Desktop\main\galaxyBackground.jpg">
+<body background-image=url("C:\Users\Rohit\Desktop\main\galaxyBackground.jpg")>
 	<!-- <h1 class="header">Plan-It: Plan Your Day, Your Way</h1> -->
 
 	<main class="main-content" >
 		<div class="fixed-background background-conferences" style = "min-height: 50% !important">
        		<h2>
-       			<span >Conferences</span>
+       			<span style = "font-size: 200%" ><em>Plan-It</em></span>
        		</h2>
        	</div>
         <div class="scrolling-line line-color"></div>
@@ -59,12 +59,13 @@
 
 		</form> -->
 
-	<form id="msform" style = "width: 100%" method="post" action="/" style = "position: absolute; bottom: 0% !important">
-        <fieldset style = "position: absolute; bottom: 0% !important">
-        	<h2 class="fs-title">Personal Information</h2>
+	<form id="msform" style = "width: 100%" method="post" action="/" style = "position: absolute; bottom: -20% !important">
+        <fieldset style = "position: absolute; bottom: -20% !important">
+        	<h2 class="fs-title">Location</h2>
 			<h3 class="fs-subtitle"></h3>
-          <input class="form-control" rows="1" id="textbox" name="zipcode" placeholder="Cell Carrier"></input>
-        	<button type="submit"  style = "color: #3333cc; background-color: white" class="btn btn-submit btn-default navbtn page-scroll" id="send" style="margin-bottom: 15px">Send</button>
+          <input class="form-control" rows="1" id="textbox" name="zipcode" placeholder="Enter Zipcode"></input>
+           <!-- <input class="form-control" rows="1" id="textbox" type = "number" name="distance" placeholder="Default Distance : 20 miles"></input> -->
+        	<button type="submit"  style = "color: #3333cc; background-color: white; display: none" class="btn btn-submit btn-default navbtn page-scroll" id="send" style="margin-bottom: 15px">Send</button>
         </fieldset>
       </form>
 
