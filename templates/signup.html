@@ -38,57 +38,29 @@
 	<h1 class="header">Plan-It: Plan Your Day, Your Way</h1>
 
 	<main class="main-content" >
-
-		<form id="msform" style = "width: 100%">
+<!-- 
+		<form id="msform" style = "width: 100%"> -->
 
 			<!-- fieldsets -->
-			<fieldset>
+			<!-- <fieldset>
 				<h2 class="fs-title">Personal Information</h2>
 				<h3 class="fs-subtitle"></h3>
 				<div id="wynmistakes" class="errormessages"></div>
 				<input type="text" name="zipcode" placeholder="Enter Zip Code!" id="zc"/>
 				<input style = "color: #3333cc; background-color: white"type="button" name="next" onclick="getZip()" class="next1 action-button" value="Next" />
-			</fieldset>
-			<fieldset>
-				<h2 class="fs-title">What kinds of things do you like to do?</h2>
-				<div id="pimistakes" class="errormessages"></div>
-				<input type="number" name="age" placeholder="Your Age" id="currentAge"/>
-				<input type="text" name="activities" placeholder="What kinds of activities would you like to do? (Restaurants, Bars, Beaches, Parks, etc.)" id="activities"/>
-				<input style = "color: #3333cc; background-color: white"type="button" name="previous" class="previous action-button" value="Previous" />
-				<input style = "color: #3333cc; background-color: white"type="button" name="next" class="next2 action-button" value="Next" />
-			</fieldset>
-			<fieldset>
-				<h2 class="fs-title">Make a plan</h2>
-				<div id="admistakes" class="errormessages"></div>
-				<input type="number" name="budget" placeholder="How much money can you spend?" id="budget"/>
-				<input type="number" name="hours" placeholder="What time is it? (put your answer in terms of hours ie. 8:00 = 8 hours)" id="hours"/>
-				<input style = "color: #3333cc; background-color: white"type="button" name="previous" class="previous action-button" value="Previous" />
-				<input style = "color: #3333cc; background-color: white"type="button" name="next" class="next3 action-button" value="Submit" />
-			</fieldset>
-			<fieldset>
-				<h2 class = "fs-title">Here's what we have planned for you: </h2>
-				<ul id = "final-list">
-					<li>Event 1</li>
-					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
-					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
-					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
-					<li class="cost">Cost: $50</li>
-					<li>Event 2</li>
-					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
-					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
-					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
-					<li class="cost">Cost: $50</li>
-					<li>Event 3</li>
-					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
-					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
-					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
-					<li class="cost">Cost: $50</li>
-
-				</ul>
 
 			</fieldset>
 
-		</form>
+		</form> -->
+
+	<form id="msform" style = "width: 100%" method="post" action="/">
+        <fieldset>
+        	<h2 class="fs-title">Personal Information</h2>
+			<h3 class="fs-subtitle"></h3>
+          <input class="form-control" rows="1" id="textbox" name="zipcode" placeholder="Cell Carrier"></input>
+        	<button type="submit"  style = "color: #3333cc; background-color: white" class="btn btn-submit" id="send" style="margin-bottom: 15px">Send</button>
+        </fieldset>
+      </form>
 
 		<script>
 			var current_fs, next_fs, previous_fs; //fieldsets
