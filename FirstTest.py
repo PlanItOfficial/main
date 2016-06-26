@@ -1,3 +1,4 @@
+import cgi
 from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
 
@@ -12,8 +13,11 @@ client = Client(auth)
 
 params = {
     'term': 'food',
-    'lang': 'en'
+    'lang': 'en',
+    'radius_filter': 10000
 }
 
-response = client.search('San Francisco', **params)
+response = client.search_by_coordinates(37.410095, -122.036015, **params)
 print (response.businesses[0].name)
+print (response.businesses[1].name)
+print (response.businesses[2].name)
