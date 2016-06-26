@@ -29,7 +29,7 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" ></script>
 
 
-	<title>Lynbrook DECA</title>
+	<title>Plan-It</title>
 
     <link rel="icon" href="img/favico.png"></link>
 </head>
@@ -50,22 +50,18 @@
 
 			<!-- fieldsets -->
 			<fieldset>
-				<h2 class="fs-title">What's your name?</h2>
-				<h3 class="fs-subtitle">Tell us who you are</h3>
+				<h2 class="fs-title">Personal Information</h2>
+				<h3 class="fs-subtitle"></h3>
 				<div id="wynmistakes" class="errormessages"></div>
 				<input type="text" name="firstname" placeholder="First Name" id="fname"/>
 				<input type="text" name="lastname" placeholder="Last Name" id="lname"/>
-				<input type="button" name="next" class="next1 action-button" value="Next" />
+				<input type="button" name="next"class="next1 action-button" value="Next" />
 			</fieldset>
 			<fieldset>
-				<h2 class="fs-title">Personal Information</h2>
-				<h3 class="fs-subtitle">We promise not to sell it</h3>
+				<h2 class="fs-title">What kinds of things do you like to do?</h2>
 				<div id="pimistakes" class="errormessages"></div>
-				<input type="tel" name="cellname" placeholder="Cell Phone (###-###-####)" id="cellphone"/>
-				<input type="number" name="grade" placeholder="Current grade (9-12)" id="currentgrade"/>
-				<input type="number" name="years" placeholder="Year in DECA (1-4)" id="yearindeca"/>
-				<input type="text" name="tshirt" placeholder="T-Shirt Size (Adult)" id="tshirtsize"/>
-				<input type="text" name="parentemail" placeholder="Parent Email" id="parentemail"/>
+				<input type="number" name="age" placeholder="Your Age" id="currentAge"/>
+				<input type="text" name="activities" placeholder="What kinds of activities would you like to do? (Restaurants, Bars, Beaches, Parks, etc.)" id="activities"/>
 				<input type="button" name="previous" class="previous action-button" value="Previous" />
 				<input type="button" name="next" class="next2 action-button" value="Next" />
 			</fieldset>
@@ -163,11 +159,8 @@
 			});
 			$(".next2").click(function(){
 				error2="";
-				cellok=false;
-				gradeok=false;
-				yearindecaok=false;
-				tshirtok=false;
-				parentemailok=false;
+				
+				
 				$("#pimistakes").html(error2);
 				function isvalidphonenumber(inputtxt)  
 				{  
@@ -187,7 +180,7 @@
 					error2+="Please enter a valid 10-digit phone number like ###-###-####.<br>"
 				}
 
-				if ($("#currentgrade").val() < 9 || $("#currentgrade").val() > 12) {
+				if ($("#currentAge").val() < 9 || $("#currentAge").val() > 12) {
 					error2+="Your grade must be between 9 and 12.<br>"
 				} else {
 					gradeok=true;
@@ -210,13 +203,8 @@
 			    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
 			    return pattern.test(emailAddress);
 				};
-				if ( isValidEmailAddress($("#parentemail").val()) )
-				{
-					parentemailok=true;
-				} else {
-					error2+="Please enter a valid parent email address.<br>";
-				}
-				if (cellok && gradeok && yearindecaok && tshirtok && parentemailok) {
+				
+				if (cellok && gradeok && yearindecaok && tshirtok) {
 					if(animating) return false;
 					animating = true;
 					current_fs = $(this).parent();
@@ -403,7 +391,7 @@
 
 			var cellphone = $("#cellphone").val();
 
-			var currentgrade = $("#currentgrade").val();
+			var currentAge = $("#currentAge").val();
 
 			var yearindeca = $("#yearindeca").val();
 
@@ -413,7 +401,7 @@
 
 			var tshirtsize = $("#tshirtsize").val();
 
-			var parentemail = $("#parentemail").val();
+			var activities = $("#activities").val();
 
 			// alert(email + lastname + firstname + email + currentgrade);
 			var user = new Parse.User();
@@ -428,10 +416,10 @@
 			user.set("lastname", lastname);
 			
 			user.set("phone", cellphone);
-			user.set("currentgrade", currentgrade);
+			user.set("currentAge", currentAge);
 			user.set("yearindeca", yearindeca);
 			
-			user.set("parentemail", parentemail);
+			user.set("activities",activities);
 			user.set("tshirtsize", tshirtsize);
 			
 
