@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="https://www.parsecdn.com/js/parse-1.6.14.min.js"></script>
+	</script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtapG46SfKsgGbZ-ChRlMFCxI6vgwcJRM">
+    </script>
+
+    <!--Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+
+    <!--Stylesheets-->
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/design.css"> <!-- Resource style -->
+	<link rel="stylesheet" type="text/css" href="demo.css">
+<!-- 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+    <!--Script-->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" ></script>
+
+
+	<title>Plan-It</title>
+
+    <link rel="icon" href="img/favico.png"></link>
+</head>
+
+<body background="C:\Users\Rohit\Desktop\main\galaxyBackground.jpg">
+	<h1 class="header">Plan-It: Plan Your Day, Your Way</h1>
+
+	<main class="main-content" >
+
+		<form id="msform" style = "width: 100%">
+			<!-- progressbar -->
+			<ul id="progressbar"  >
+				<li class="active">Step 1</li>
+				<li>Step 2</li>
+				<li>Step 3</li>
+				<li>Step 4</li>
+			</ul>
+
+			<!-- fieldsets -->
+			<fieldset>
+				<h2 class="fs-title">Personal Information</h2>
+				<h3 class="fs-subtitle"></h3>
+				<div id="wynmistakes" class="errormessages"></div>
+				<input type="text" name="firstname" placeholder="First Name" id="fname"/>
+				<input type="text" name="lastname" placeholder="Last Name" id="lname"/>
+				<input type="text" name="zipcode" placeholder = "Zipcode" id="zipcode"/>
+				<input style = "color: #3333cc; background-color: white"type="button" name="next"class="next1 action-button" value="Next" />
+			</fieldset>
+			<fieldset>
+				<h2 class="fs-title">What kinds of things do you like to do?</h2>
+				<div id="pimistakes" class="errormessages"></div>
+				<input type="number" name="age" placeholder="Your Age" id="currentAge"/>
+				<input type="text" name="activities" placeholder="What kinds of activities would you like to do? (Restaurants, Bars, Beaches, Parks, etc.)" id="activities"/>
+				<input style = "color: #3333cc; background-color: white"type="button" name="previous" class="previous action-button" value="Previous" />
+				<input style = "color: #3333cc; background-color: white"type="button" name="next" class="next2 action-button" value="Next" />
+			</fieldset>
+			<fieldset>
+				<h2 class="fs-title">Make a plan</h2>
+				<div id="admistakes" class="errormessages"></div>
+				<input type="number" name="budget" placeholder="How much money can you spend?" id="budget"/>
+				<input type="number" name="hours" placeholder="What time is it? (put your answer in terms of hours ie. 8:00 = 8 hours)" id="hours"/>
+				<input style = "color: #3333cc; background-color: white"type="button" name="previous" class="previous action-button" value="Previous" />
+				<input style = "color: #3333cc; background-color: white"type="button" name="next" class="next3 action-button" value="Submit" />
+			</fieldset>
+			<fieldset>
+				<h2 class = "fs-title">Here's what we have planned for you: </h2>
+				<ul id = "final-list">
+					<li>Event 1</li>
+					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
+					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
+					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
+					<li class="cost">Cost: $50</li>
+					<li>Event 2</li>
+					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
+					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
+					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
+					<li class="cost">Cost: $50</li>
+					<li>Event 3</li>
+					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
+					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
+					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
+					<li class="cost">Cost: $50</li>
+
+				</ul>
+
+			</fieldset>
+
+		</form>
+
+		<script>
+			var current_fs, next_fs, previous_fs; //fieldsets
+			var left, opacity, scale; //fieldset properties which we will animate
+			var animating; //flag to prevent quick multi-click glitches
+			// var fnameok=true;
+			// var lnameok=true;
+			// var cellok=true;
+			// var gradeok=true;
+			// var yearindecaok=true;
+			// var emailok=true;
+			// var passwordsmatch=true;
+			// var clubpasswordok=true;
+			// var clubpassword="epicdiamonds"
+			var error1="";
+			var error2="";
+			var error3="";
+			var error4="";
+			var fname = $('#fname').val();
+			var lname = $('#lname').val();
+			var zipcode = $('#zipcode').val();
+			var zipcode = $('#age').val();
+			var activities = $('#activities').val();
+			var budget = $('#budget').val();
+			var hours = $('#hours').val();
+			$(".next1").click(function(event){
+				var error1="";
+				fnameok=true;
+				lnameok=true;
+				$("#wynmistakes").html(error1);
+				if ($("#fname").val()!="")
+				{
+					fnameok=true;
+				} else {
+					error1+="Please enter your first name.<br>";
+				}
+				if ($("#lname").val()!="")
+				{
+					lnameok=true;
+				} else {
+					error1+="Please enter your last name.<br>";
+				}
+				if (fnameok && lnameok) {
+					if(animating) return false;
+					animating = true;
+					current_fs = $(this).parent();
+					next_fs = $(this).parent().next();
+					
+					//activate next step on progressbar using the index of next_fs
+					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+					
+					//show the next fieldset
+					next_fs.show(); 
+					//hide the current fieldset with style
+					current_fs.animate({opacity: 0}, {
+						step: function(now, mx) {
+							//as the opacity of current_fs reduces to 0 - stored in "now"
+							//1. scale current_fs down to 80%
+							scale = 1 - (1 - now) * 0.2;
+							//2. bring next_fs from the right(50%)
+							left = (now * 50)+"%";
+							//3. increase opacity of next_fs to 1 as it moves in
+							opacity = 1 - now;
+							current_fs.css({'transform': 'scale('+scale+')'});
+							next_fs.css({'left': left, 'opacity': opacity});
+						}, 
+						duration: 800, 
+						complete: function(){
+							current_fs.hide();
+							animating = false;
+						}, 
+						//this comes from the custom easing plugin
+						easing: 'easeInOutBack'
+					});
+				} else {
+					error1+="<br>";
+					$("#wynmistakes").html(error1);
+				}
+			});
+			$(".next2").click(function(){
+				error2="";
+				
+				
+				
+			
+				cellok = true;
+				gradeok = true;
+				yearindecaok = true;
+				tshirtok = true;
+				if (cellok && gradeok && yearindecaok && tshirtok) {
+					if(animating) return false;
+					animating = true;
+					current_fs = $(this).parent();
+					next_fs = $(this).parent().next();
+					
+					//activate next step on progressbar using the index of next_fs
+					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+					
+					//show the next fieldset
+					next_fs.show(); 
+					//hide the current fieldset with style
+					current_fs.animate({opacity: 0}, {
+						step: function(now, mx) {
+							//as the opacity of current_fs reduces to 0 - stored in "now"
+							//1. scale current_fs down to 80%
+							scale = 1 - (1 - now) * 0.2;
+							//2. bring next_fs from the right(50%)
+							left = (now * 50)+"%";
+							//3. increase opacity of next_fs to 1 as it moves in
+							opacity = 1 - now;
+							current_fs.css({'transform': 'scale('+scale+')'});
+							next_fs.css({'left': left, 'opacity': opacity});
+						}, 
+						duration: 800, 
+						complete: function(){
+							current_fs.hide();
+							animating = false;
+						}, 
+						//this comes from the custom easing plugin
+						easing: 'easeInOutBack'
+					});
+				} else {
+					error2+="<br>";
+					$("#pimistakes").html(error2);
+				}
+			});
+
+			$(".previous").click(function(){
+				if(animating) return false;
+				animating = true;
+				
+				current_fs = $(this).parent();
+				previous_fs = $(this).parent().prev();
+				
+				//de-activate current step on progressbar
+				$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+				
+				//show the previous fieldset
+				previous_fs.show(); 
+				//hide the current fieldset with style
+				current_fs.animate({opacity: 0}, {
+					step: function(now, mx) {
+						//as the opacity of current_fs reduces to 0 - stored in "now"
+						//1. scale previous_fs from 80% to 100%
+						scale = 0.8 + (1 - now) * 0.2;
+						//2. take current_fs to the right(50%) - from 0%
+						left = ((1-now) * 50)+"%";
+						//3. increase opacity of previous_fs to 1 as it moves in
+						opacity = 1 - now;
+						current_fs.css({'left': left});
+						previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+					}, 
+					duration: 800, 
+					complete: function(){
+						current_fs.hide();
+						animating = false;
+					}, 
+					//this comes from the custom easing plugin
+					easing: 'easeInOutBack'
+				});
+
+
+			});
+				$(".next3").click(function(){
+				error3="";
+				emailok=true;
+				passwordsmatch=true;
+				$("#admistakes").html(error3);
+				function isValidEmailAddress(emailAddress) {
+			    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+			    return pattern.test(emailAddress);
+				};
+				if ( isValidEmailAddress($("#email").val()) )
+				{
+					emailok=true;
+				} else {
+					error3+="Please enter a valid email address.<br>";
+				}
+				
+					passwordsmatch=true;
+				
+				if (emailok && passwordsmatch) {
+					if(animating) return false;
+					animating = true;
+					current_fs = $(this).parent();
+					next_fs = $(this).parent().next();
+					
+					//activate next step on progressbar using the index of next_fs
+					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+					
+					//show the next fieldset
+					next_fs.show(); 
+					//hide the current fieldset with style
+					current_fs.animate({opacity: 0}, {
+						step: function(now, mx) {
+							//as the opacity of current_fs reduces to 0 - stored in "now"
+							//1. scale current_fs down to 80%
+							scale = 1 - (1 - now) * 0.2;
+							//2. bring next_fs from the right(50%)
+							left = (now * 50)+"%";
+							//3. increase opacity of next_fs to 1 as it moves in
+							opacity = 1 - now;
+							current_fs.css({'transform': 'scale('+scale+')'});
+							next_fs.css({'left': left, 'opacity': opacity});
+						}, 
+						duration: 800, 
+						complete: function(){
+							current_fs.hide();
+							animating = false;
+						}, 
+						//this comes from the custom easing plugin
+						easing: 'easeInOutBack'
+					});
+				} else {
+					error3+="<br>";
+					$("#admistakes").html(error3);
+				}
+			});
+
+
+
+		</script>
+
+		<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+
+	   
+		
+	</main>
+	<script>
+
+
+	// $("#msform").submit(function(){
+	// 	alert("Submitted");
+	// 	signupfunction();
+	// });
+
+	// $("#signupsubmit").click(function(){
+	// 	alert("Submitted");
+	// 	signupfunction();
+	// });
+
+
+	
+	
+
+
+	</script>
+
+
+</body>
+
+
+
+</html>
