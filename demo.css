@@ -1,85 +1,39 @@
-body{
 
-	background-image: url('spaceBackground.jpg');
-}
-.head {
-	font-family: sans-serif;
-	text-align: center;
-	padding-right: 10px;
-	font-size: 50px;
-	color: white;
-
-}
-
-.dropdown {
-  
+.header{
+  font-color: white;
+  position:absolute;
+  top:0;
+  background-color: #3333cc;
+  text-align: center;
+  font-size: 50px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  color: white;
+  font-weight: 45px;
 }
 
-.heading {
-	font-size: 30px;
-}
-
-#options{
-	margin: auto;
-	width: 17.5%;
-	padding-top: 50px;
-}
-
-#left {
-	
-}
-
-#right {
-	
-}
-
-.box{
-  margin: 25px auto;
-  width: 500px;
-  height: 50px;
-  border-radius: 6px;
-  vertical-align: 50%;
-}
-
-
-input[type=text]:focus {
-    width: 700px;
-}
-/*#bottom {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 50%
-    background-color: white;
-}
-#top {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 50%
-	background-color: #FF5050;
-}*/
 
 #msform {
   width: 700px;
-  height:500px;
-  margin: 60px auto;
-  text-align: center;
-  position: relative;
+  height:300px;
+  margin: 30px auto;
+  position: absolute;
+  bottom: 20%;
   font-family: 'Raleway', arial, verdana;
-  margin-bottom:85px;
+  margin-bottom:0px;
 }
 
+
 #msform fieldset {
-  background: white;
-  border: 0 none;
+  background: #3333cc;
+  border: 3px, white;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   padding: 20px 30px;
   width: 80%;
   margin: 0 10%;
   position: absolute;
+  border-radius: 12px;
+
 }
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
@@ -87,7 +41,7 @@ input[type=text]:focus {
 }
 /*inputs*/
 #msform input {
-  padding: 15px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
   margin-bottom: 10px;
@@ -116,7 +70,7 @@ input[type=text]:focus {
 .fs-title {
   font-size: 30px;
   text-transform: uppercase;
-  color: #192E76;
+  color: white;
   margin-bottom: 10px;
 }
 .fs-subtitle {
@@ -148,7 +102,7 @@ input[type=text]:focus {
   line-height: 30px;
   display: block;
   font-size: 18px;
-  color: whitesmoke;
+  color: white;
   background: gray;
   border-radius: 5px;
   margin: 0 auto 10px auto;
@@ -171,7 +125,7 @@ input[type=text]:focus {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-  background: #27AE60;
+  background: #3333cc;
   color: white;
 }
 
@@ -186,3 +140,24 @@ input[type=text]:focus {
     font-size:4.vw;
   }
 }
+
+ul{
+  color:white;
+  font-size: 20px;
+}
+
+ul li {
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.description {
+  margin-bottom: 10px;
+}
+.cost {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  border-color: green;
+  color:white;
+}
+

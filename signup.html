@@ -22,6 +22,7 @@
     <!--Stylesheets-->
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/design.css"> <!-- Resource style -->
+	<link rel="stylesheet" type="text/css" href="demo.css">
 <!-- 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 
     <!--Script-->
@@ -34,10 +35,10 @@
     <link rel="icon" href="img/favico.png"></link>
 </head>
 
-<body style="background-color:whitesmoke">
-	
-	<main class="main-content" >
+<body background="C:\Users\Rohit\Desktop\main\galaxyBackground.jpg">
+	<h1 class="header">Plan-It: Plan Your Day, Your Way</h1>
 
+	<main class="main-content" >
 
 		<form id="msform" style = "width: 100%">
 			<!-- progressbar -->
@@ -55,33 +56,46 @@
 				<div id="wynmistakes" class="errormessages"></div>
 				<input type="text" name="firstname" placeholder="First Name" id="fname"/>
 				<input type="text" name="lastname" placeholder="Last Name" id="lname"/>
-				<input type="button" name="next"class="next1 action-button" value="Next" />
+				<input type="text" name="zipcode" placeholder = "Zipcode" id="zipcode"/>
+				<input style = "color: #3333cc; background-color: white"type="button" name="next"class="next1 action-button" value="Next" />
 			</fieldset>
 			<fieldset>
 				<h2 class="fs-title">What kinds of things do you like to do?</h2>
 				<div id="pimistakes" class="errormessages"></div>
 				<input type="number" name="age" placeholder="Your Age" id="currentAge"/>
 				<input type="text" name="activities" placeholder="What kinds of activities would you like to do? (Restaurants, Bars, Beaches, Parks, etc.)" id="activities"/>
-				<input type="button" name="previous" class="previous action-button" value="Previous" />
-				<input type="button" name="next" class="next2 action-button" value="Next" />
+				<input style = "color: #3333cc; background-color: white"type="button" name="previous" class="previous action-button" value="Previous" />
+				<input style = "color: #3333cc; background-color: white"type="button" name="next" class="next2 action-button" value="Next" />
 			</fieldset>
 			<fieldset>
-				<h2 class="fs-title">Account Details</h2>
-				<h3 class="fs-subtitle">How you will sign in</h3>
+				<h2 class="fs-title">Make a plan</h2>
 				<div id="admistakes" class="errormessages"></div>
-				<input type="text" name="email" placeholder="Email" id="email"/>
-				<input type="password" name="password" placeholder="Password" id="password"/>
-				<input type="password" name="confirmpassword" placeholder="Confirm Password" id="confirmpassword"/>
-				<input type="button" name="previous" class="previous action-button" value="Previous" />
-				<input type="button" name="next" class="next3 action-button" value="Next" />
+				<input type="number" name="budget" placeholder="How much money can you spend?" id="budget"/>
+				<input type="number" name="hours" placeholder="What time is it? (put your answer in terms of hours ie. 8:00 = 8 hours)" id="hours"/>
+				<input style = "color: #3333cc; background-color: white"type="button" name="previous" class="previous action-button" value="Previous" />
+				<input style = "color: #3333cc; background-color: white"type="button" name="next" class="next3 action-button" value="Submit" />
 			</fieldset>
 			<fieldset>
-				<h2 class="fs-title">Club Password</h2>
-				<h3 class="fs-subtitle">What's the magic word?</h3>
-				<div id="cpmistakes" class="errormessages"></div>
-				<input type="text" name="clubpassword" placeholder="Club Password" id="clubpassword"/>
-				<input type="button" name="previous" class="previous action-button" value="Previous" />
-				<input type="submit" name="submit" class="submit action-button" value="Submit" id ="signupsubmit"/>
+				<h2 class = "fs-title">Here's what we have planned for you: </h2>
+				<ul id = "final-list">
+					<li>Event 1</li>
+					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
+					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
+					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
+					<li class="cost">Cost: $50</li>
+					<li>Event 2</li>
+					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
+					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
+					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
+					<li class="cost">Cost: $50</li>
+					<li>Event 3</li>
+					<li><img src="C:\Users\Rohit\Desktop\main\restaurant.jpg" height="400" width="600"></li>
+					<li class="description">Description: <br> BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah
+					BlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</li>
+					<li class="cost">Cost: $50</li>
+
+				</ul>
+
 			</fieldset>
 
 		</form>
@@ -90,23 +104,30 @@
 			var current_fs, next_fs, previous_fs; //fieldsets
 			var left, opacity, scale; //fieldset properties which we will animate
 			var animating; //flag to prevent quick multi-click glitches
-			var fnameok=false;
-			var lnameok=false;
-			var cellok=false;
-			var gradeok=false;
-			var yearindecaok=false;
-			var emailok=false;
-			var passwordsmatch=false;
-			var clubpasswordok=false;
-			var clubpassword="epicdiamonds"
+			// var fnameok=true;
+			// var lnameok=true;
+			// var cellok=true;
+			// var gradeok=true;
+			// var yearindecaok=true;
+			// var emailok=true;
+			// var passwordsmatch=true;
+			// var clubpasswordok=true;
+			// var clubpassword="epicdiamonds"
 			var error1="";
 			var error2="";
 			var error3="";
 			var error4="";
+			var fname = $('#fname').val();
+			var lname = $('#lname').val();
+			var zipcode = $('#zipcode').val();
+			var zipcode = $('#age').val();
+			var activities = $('#activities').val();
+			var budget = $('#budget').val();
+			var hours = $('#hours').val();
 			$(".next1").click(function(event){
 				var error1="";
-				fnameok=false;
-				lnameok=false;
+				fnameok=true;
+				lnameok=true;
 				$("#wynmistakes").html(error1);
 				if ($("#fname").val()!="")
 				{
@@ -161,49 +182,12 @@
 				error2="";
 				
 				
-				$("#pimistakes").html(error2);
-				function isvalidphonenumber(inputtxt)  
-				{  
-					var phoneno = new RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
-					var phonenoo = new RegExp(/^\d{10}$/);
-					if (phoneno.test(inputtxt)) {
-						return true;
-					} else if (phonenoo.test(inputtxt)) {
-						return true;
-					} else {
-						return false;
-					}
-				}
-				if (isvalidphonenumber($("#cellphone").val())) {
-					cellok=true;
-				} else {
-					error2+="Please enter a valid 10-digit phone number like ###-###-####.<br>"
-				}
-
-				if ($("#currentAge").val() < 9 || $("#currentAge").val() > 12) {
-					error2+="Your grade must be between 9 and 12.<br>"
-				} else {
-					gradeok=true;
-				}
-				if ($("#yearindeca").val() < 1 || $("#yearindeca").val() > 4) {
-					error2+="Your year in DECA must be between 1 and 4.<br>"
-				} else {
-					yearindecaok=true;
-				}
-				function isEmpty(str) {
-				    return (!str || 0 === str.length);
-				}
-				if (isEmpty($("#tshirtsize").val()))
-				{
-					error2+="Please enter a T-Shirt size.<br>"
-				} else {
-					tshirtok=true;
-				}
-				function isValidEmailAddress(emailAddress) {
-			    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-			    return pattern.test(emailAddress);
-				};
 				
+			
+				cellok = true;
+				gradeok = true;
+				yearindecaok = true;
+				tshirtok = true;
 				if (cellok && gradeok && yearindecaok && tshirtok) {
 					if(animating) return false;
 					animating = true;
@@ -241,10 +225,47 @@
 					$("#pimistakes").html(error2);
 				}
 			});
-			$(".next3").click(function(){
+
+			$(".previous").click(function(){
+				if(animating) return false;
+				animating = true;
+				
+				current_fs = $(this).parent();
+				previous_fs = $(this).parent().prev();
+				
+				//de-activate current step on progressbar
+				$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+				
+				//show the previous fieldset
+				previous_fs.show(); 
+				//hide the current fieldset with style
+				current_fs.animate({opacity: 0}, {
+					step: function(now, mx) {
+						//as the opacity of current_fs reduces to 0 - stored in "now"
+						//1. scale previous_fs from 80% to 100%
+						scale = 0.8 + (1 - now) * 0.2;
+						//2. take current_fs to the right(50%) - from 0%
+						left = ((1-now) * 50)+"%";
+						//3. increase opacity of previous_fs to 1 as it moves in
+						opacity = 1 - now;
+						current_fs.css({'left': left});
+						previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+					}, 
+					duration: 800, 
+					complete: function(){
+						current_fs.hide();
+						animating = false;
+					}, 
+					//this comes from the custom easing plugin
+					easing: 'easeInOutBack'
+				});
+
+
+			});
+				$(".next3").click(function(){
 				error3="";
-				emailok=false;
-				passwordsmatch=false;
+				emailok=true;
+				passwordsmatch=true;
 				$("#admistakes").html(error3);
 				function isValidEmailAddress(emailAddress) {
 			    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
@@ -256,15 +277,9 @@
 				} else {
 					error3+="Please enter a valid email address.<br>";
 				}
-				if ($("#password").val()=="") {
-					error3+="Please enter a password.<br>";
-				} else if ($("#confirmpassword").val()=="") {
-					error3+="Please confirm your password.<br>";
-				} else if ($('#password').val() != $('#confirmpassword').val()) {
-					error3+="Your passwords don't match.<br>";
-				} else {
+				
 					passwordsmatch=true;
-				}
+				
 				if (emailok && passwordsmatch) {
 					if(animating) return false;
 					animating = true;
@@ -303,57 +318,6 @@
 				}
 			});
 
-			$("#signupsubmit").click(function(event) {
-				event.preventDefault();
-				error4="";
-				clubpasswordok=false;
-				$("#cpmistakes").html(error4);
-				if ($('#clubpassword').val() != clubpassword) {
-					error4+="That isn't the club password.<br>";
-				} else {
-					clubpasswordok=true;
-					signupfunction();
-				}
-				if (!clubpasswordok) {
-					error4+="<br>";
-					$("#cpmistakes").html(error4);
-				}
-			});
-
-			$(".previous").click(function(){
-				if(animating) return false;
-				animating = true;
-				
-				current_fs = $(this).parent();
-				previous_fs = $(this).parent().prev();
-				
-				//de-activate current step on progressbar
-				$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-				
-				//show the previous fieldset
-				previous_fs.show(); 
-				//hide the current fieldset with style
-				current_fs.animate({opacity: 0}, {
-					step: function(now, mx) {
-						//as the opacity of current_fs reduces to 0 - stored in "now"
-						//1. scale previous_fs from 80% to 100%
-						scale = 0.8 + (1 - now) * 0.2;
-						//2. take current_fs to the right(50%) - from 0%
-						left = ((1-now) * 50)+"%";
-						//3. increase opacity of previous_fs to 1 as it moves in
-						opacity = 1 - now;
-						current_fs.css({'left': left});
-						previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-					}, 
-					duration: 800, 
-					complete: function(){
-						current_fs.hide();
-						animating = false;
-					}, 
-					//this comes from the custom easing plugin
-					easing: 'easeInOutBack'
-				});
-			});
 
 
 		</script>
@@ -378,67 +342,15 @@
 	// });
 
 
-	function signupfunction() {
-
-
-		if (clubpasswordok)
-		{
-			// alert("signupfunction submitted");
-
-			var firstname = $("#fname").val();
-
-			var lastname = $("#lname").val();
-
-			var cellphone = $("#cellphone").val();
-
-			var currentAge = $("#currentAge").val();
-
-			var yearindeca = $("#yearindeca").val();
-
-			var email = $("#email").val();
-
-			var password = $("#password").val();
-
-			var tshirtsize = $("#tshirtsize").val();
-
-			var activities = $("#activities").val();
-
-			// alert(email + lastname + firstname + email + currentgrade);
-			var user = new Parse.User();
-
-
-			// other fields can be set just like with Parse.Object
-			user.set("username", email);
-			user.set("email", email);
-			user.set("password", password);
-
-			user.set("firstname", firstname);
-			user.set("lastname", lastname);
-			
-			user.set("phone", cellphone);
-			user.set("currentAge", currentAge);
-			user.set("yearindeca", yearindeca);
-			
-			user.set("activities",activities);
-			user.set("tshirtsize", tshirtsize);
-			
-
-			user.signUp(null, {
-				success: function(user) {
-			    // Hooray! Let them use the app now.
-			    // alert("sign it worked");
-			    window.location.href='dashboard/dashboard.html';
-			},
-			error: function(user, error) {
-			    // Show the error message somewhere and let the user try again.
-			    alert("Error: " + error.code + " " + error.message);
-			}
-		});
-
-		}
-	}
+	
+	
 
 
 	</script>
+
+
 </body>
+
+
+
 </html>
