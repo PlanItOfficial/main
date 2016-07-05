@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 def hello():
-    print "hellfsjdla;fal;slkldsfkdsafklfdaskl;fdskl;fkl;asdfkdsa;o"
+    print ("hellfsjdla;fal;slkldsfkdsafklfdaskl;fdskl;fkl;asdfkdsa;o")
 
 @app.route("/conferences.html")
 def getrecs():
@@ -26,6 +26,8 @@ def getrecs():
     client = Client(auth)
     client2 = Client(auth)
     client3 = Client(auth)
+    client4 = Client(auth)
+    
     params = {
         'term': 'breakfast',
         'lang': 'en',
@@ -35,9 +37,10 @@ def getrecs():
     response = client.search(zipcode, **params)
 
     rate1 = str(response.businesses[0].rating)
+    address1 = response.businesses[0].location.display_address[0] + " " + response.businesses[0].location.display_address[1]
 
     data = {"restaurants": [
-       {"name": response.businesses[0].name, "rating": rate1, "image_url": response.businesses[0].image_url, "address": response.businesses[0].location.address}]}
+       {"name": response.businesses[0].name, "rating": rate1, "image_url": response.businesses[0].image_url, "address": address1}]}
 
     params2 = {
         'term': 'park',
@@ -47,12 +50,13 @@ def getrecs():
 
     response2 = client2.search(zipcode, **params2)
 
-    rate2 = str(response.businesses[0].rating)
+    rate2 = str(response2.businesses[0].rating)
+    address2 = response2.businesses[0].location.display_address[0] + " " + response2.businesses[0].location.display_address[1]
 
     data2 = {"restaurants": [
-       {"name": response2.businesses[0].name, "rating": rate2, "image_url": response2.businesses[0].image_url, "address": response2.businesses[0].location.address}]}
+       {"name": response2.businesses[0].name, "rating": rate2, "image_url": response2.businesses[0].image_url, "address": address2}]}
 
-    
+
     params3 = {
         'term': 'lunch',
         'lang': 'en',
@@ -62,13 +66,28 @@ def getrecs():
     response3 = client3.search(zipcode, **params3)
 
     rate3 = str(response3.businesses[0].rating)
+    address3 = response3.businesses[0].location.display_address[0] + " " + response3.businesses[0].location.display_address[1]
 
     data3 = {"restaurants": [
-       {"name": response3.businesses[0].name, "rating": rate3, "image_url": response3.businesses[0].image_url, "address": response3.businesses[0].location.address}]}
+       {"name": response3.businesses[0].name, "rating": rate3, "image_url": response3.businesses[0].image_url, "address": address3}]}
+
+    params4 = {
+        'term': 'beach',
+        'lang': 'en',
+        'radius_filter': 40000
+    }
+
+    response4 = client4.search(zipcode, **params4)
+
+    rate4 = str(response4.businesses[0].rating)
+    address4 = response4.businesses[0].location.display_address[0] + " " + response4.businesses[0].location.display_address[1]
+
+    data4 = {"restaurants": [
+       {"name": response4.businesses[0].name, "rating": rate4, "image_url": response4.businesses[0].image_url, "address": address4}]}
 
 
-    return render_template('conferences.html', name1 = data, name2= data2, name3 = data3)
-  
+    return render_template('conferences.html', name1 = data, name2= data2, name3 = data3, name4 = data4)
+
 
 
 
@@ -80,7 +99,7 @@ def getrecs():
 def signup():
 
     if request.method == 'POST':
-        
+
         # print request.form['zipcode']
         global zipcode
         zipcode = request.form['zipcode']
@@ -88,7 +107,7 @@ def signup():
         # global radius
         # radius = (request.form['distance'] + 0.0) * 40000.0/25.0
         # print radius
-        
+
         # return render_template('conferences.html')
 
         return getrecs();
@@ -103,7 +122,7 @@ def signup():
 if __name__ == "__main__":
     app.run()
 
-print zipcode
+print (zipcode)
 
 
 
